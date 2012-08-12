@@ -1,0 +1,8 @@
+alias bb="afplay /System/Library/Sounds/Glass.aiff"
+source ~/.nvm/nvm.sh
+
+alias h=heroku
+alias hh="heroku help"
+alias aria='aria2c -s 10 -x 10 -k 1M'
+
+prompt fancy
