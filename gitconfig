@@ -1,0 +1,34 @@
+[core]
+    editor = vim
+    quotepath = false
+
+ [rerere]
+     enabled = 1
+
+[color]
+    ui = true
+
+[alias]
+    ci = commit -v
+    co = checkout
+    st = status
+    br = branch
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lga = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all
+    ls = ls-files
+    d  = diff -C --stat -p
+    dw = diff -C --stat -p --color-words
+    dww = diff -w -C --stat -p --color-words
+    dd = cat-file -p
+
+[push]
+    default = current
+
+[help]
+    autocorrect = 1
+
+[branch]
+      autosetuprebase = always
+
+[diff]
+      renames = copy
