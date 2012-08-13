@@ -11,8 +11,8 @@ The files installed:
 * /etc/gitconfig
 * ~/.gitconfig
 
-> NOTE: zsh and vim config files are supposed to complement [dotvim][1] and
-> [dotzsh][1] respectively.
+> NOTE: zsh and vim config files are supposed to complement [dotvim][dotvim] and
+> [dotzsh][dotzsh] respectively.
 
 [dotvim]: http://github.com/astrails/dotvim
 [dotzsh]: http://github.com/astrails/dotzsh
