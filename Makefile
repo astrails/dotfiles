@@ -1,5 +1,8 @@
 help:
 	@echo make install - install dotfiles
+	@echo make clean   - remove installed files
+	@echo
+	@echo When running for the first time its recommended to run clean first to remove prior existing files
 
 
 LOCAL_AFTER_VIM = ~/.local-after.vim
@@ -18,4 +21,10 @@ USER_GITCONFIG = ~/.gitconfig
 ${USER_GITCONFIG}:
 	@if grep CHANGE user-gitconfig; then echo EDIT user-gitconfig; false; else ln -svfn `pwd`/user-gitconfig $@; fi
 
-install: ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG}
+TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG}
+
+install: ${TARGETS}
+
+clean:
+	sudo rm -f ${SYSTEM_GITCONFIG}
+	rm -fv ${TARGETS}
