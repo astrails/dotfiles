@@ -1,4 +1,8 @@
-set guifont=Monaco:h11
+"set guifont=Inconsolata-dz\ for\ Powerline:h16
+"set guifont=Monaco:h16
+set guifont=Mensch\ Regular\ for\ Powerline:h16
+let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'compatible'
 
 set cul
 set foldcolumn=4
