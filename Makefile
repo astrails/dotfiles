@@ -5,26 +5,31 @@ help:
 	@echo When running for the first time its recommended to run clean first to remove prior existing files
 
 
-LOCAL_AFTER_VIM = ~/.local-after.vim
-${LOCAL_AFTER_VIM}:
-	ln -sfn `pwd`/local-after.vim $@
-
-ZSH_LOCAL = ~/.zsh/local
-${ZSH_LOCAL}:
-	ln -sfn `pwd`/zsh-local $@
-
+LOCAL_AFTER_VIM  = ~/.local-after.vim
+ZSH_LOCAL        = ~/.zsh/local
 SYSTEM_GITCONFIG = /etc/gitconfig
-${SYSTEM_GITCONFIG}:
-	sudo ln -sfn `pwd`/system-gitconfig $@
-
-USER_GITCONFIG = ~/.gitconfig
-${USER_GITCONFIG}:
-	@if grep CHANGE user-gitconfig; then echo EDIT user-gitconfig; false; else ln -svfn `pwd`/user-gitconfig $@; fi
+USER_GITCONFIG   = ~/.gitconfig
+GEMRC            = ~/.gemrc
 
 TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG}
+
+${LOCAL_AFTER_VIM}: $(abspath local-after.vim)
+	@rm -vf $@;ln -svfn $< $@
+
+${ZSH_LOCAL}: $(abspath zsh-local)
+	@rm -vf $@;ln -svfn $< $@
+
+${SYSTEM_GITCONFIG}: $(abspath system-gitconfig)
+	@rm -vf $@;sudo ln -svfn $< $@
+
+${USER_GITCONFIG}: $(abspath user-gitconfig)
+	@if grep CHANGE user-gitconfig; then echo EDIT user-gitconfig; false; else ln -svfn $< $@; fi
+
+${GEMRC}: $(abspath gemrc)
+	@rm -vf $@;ln -svfn $< $@
 
 install: ${TARGETS}
 
 clean:
-	sudo rm -f ${SYSTEM_GITCONFIG}
-	rm -fv ${TARGETS}
+	sudo rm -vf ${SYSTEM_GITCONFIG}
+	rm -vf ${TARGETS}
