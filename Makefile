@@ -10,8 +10,9 @@ ZSH_LOCAL        = ~/.zsh/local
 SYSTEM_GITCONFIG = /etc/gitconfig
 USER_GITCONFIG   = ~/.gitconfig
 GEMRC            = ~/.gemrc
+RDEBUGRC         = ~/.rdebugrc
 
-TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG}
+TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG} ${RDEBUGRC}
 
 ${LOCAL_AFTER_VIM}: $(abspath local-after.vim)
 	@rm -vf $@;ln -svfn $< $@
@@ -26,6 +27,9 @@ ${USER_GITCONFIG}: $(abspath user-gitconfig)
 	@if grep CHANGE user-gitconfig; then echo EDIT user-gitconfig; false; else ln -svfn $< $@; fi
 
 ${GEMRC}: $(abspath gemrc)
+	@rm -vf $@;ln -svfn $< $@
+
+${RDEBUGRC}: $(abspath rdebugrc)
 	@rm -vf $@;ln -svfn $< $@
 
 install: ${TARGETS}
