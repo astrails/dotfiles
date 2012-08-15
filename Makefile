@@ -11,8 +11,9 @@ SYSTEM_GITCONFIG = /etc/gitconfig
 USER_GITCONFIG   = ~/.gitconfig
 GEMRC            = ~/.gemrc
 RDEBUGRC         = ~/.rdebugrc
+POWCONFIG        = ~/.powconfig
 
-TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG} ${RDEBUGRC}
+TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG} ${RDEBUGRC} ${POWCONFIG}
 
 ${LOCAL_AFTER_VIM}: $(abspath local-after.vim)
 	@rm -vf $@;ln -svfn $< $@
@@ -30,6 +31,9 @@ ${GEMRC}: $(abspath gemrc)
 	@rm -vf $@;ln -svfn $< $@
 
 ${RDEBUGRC}: $(abspath rdebugrc)
+	@rm -vf $@;ln -svfn $< $@
+
+${POWCONFIG}: $(abspath powconfig)
 	@rm -vf $@;ln -svfn $< $@
 
 install: ${TARGETS}
