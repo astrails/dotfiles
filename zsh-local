@@ -10,3 +10,5 @@ NVMRC=~/.nvm/nvm.sh
 if [ -e ${NVMRC} ]; then
   source ${NVMRC}
 fi
+
+export PGHOST=localhost
