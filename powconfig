@@ -1,1 +1,2 @@
 export POW_WORKERS=1
+export PGHOST=localhost
