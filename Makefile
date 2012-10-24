@@ -12,8 +12,10 @@ USER_GITCONFIG   = ~/.gitconfig
 GEMRC            = ~/.gemrc
 RDEBUGRC         = ~/.rdebugrc
 POWCONFIG        = ~/.powconfig
+EDITRC           = ~/.editrc
+INPUTRC          = ~/.inputrc
 
-TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG} ${RDEBUGRC} ${POWCONFIG}
+TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG} ${RDEBUGRC} ${POWCONFIG} ${EDITRC} ${INPUTRC}
 
 ${LOCAL_AFTER_VIM}: $(abspath local-after.vim)
 	@rm -vf $@;ln -svfn $< $@
@@ -34,6 +36,12 @@ ${RDEBUGRC}: $(abspath rdebugrc)
 	@rm -vf $@;ln -svfn $< $@
 
 ${POWCONFIG}: $(abspath powconfig)
+	@rm -vf $@;ln -svfn $< $@
+
+${EDITRC}: $(abspath editrc)
+	@rm -vf $@;ln -svfn $< $@
+
+${INPUTRC}: $(abspath inputrc)
 	@rm -vf $@;ln -svfn $< $@
 
 install: ${TARGETS}
