@@ -10,6 +10,11 @@ The files installed:
 * ~/.zsh/local
 * /etc/gitconfig
 * ~/.gitconfig
+* ~/.gemrc
+* ~/.rdebugrc
+* ~/.powconfig
+* ~/.editrc
+* ~/.inputrc
 
 > NOTE: zsh and vim config files are supposed to complement [dotvim][dotvim] and
 > [dotzsh][dotzsh] respectively.
