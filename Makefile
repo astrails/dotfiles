@@ -5,7 +5,7 @@ help:
 	@echo When running for the first time its recommended to run clean first to remove prior existing files
 
 
-LOCAL_AFTER_VIM  = ~/.local-after.vim
+VIMRC_AFTER  = ~/.vimrc.after
 ZSH_LOCAL        = ~/.zsh/local
 SYSTEM_GITCONFIG = /etc/gitconfig
 USER_GITCONFIG   = ~/.gitconfig
@@ -15,9 +15,9 @@ POWCONFIG        = ~/.powconfig
 EDITRC           = ~/.editrc
 INPUTRC          = ~/.inputrc
 
-TARGETS := ${LOCAL_AFTER_VIM} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG} ${RDEBUGRC} ${POWCONFIG} ${EDITRC} ${INPUTRC}
+TARGETS := ${VIMRC_AFTER} ${ZSH_LOCAL} ${SYSTEM_GITCONFIG} ${USER_GITCONFIG} ${RDEBUGRC} ${POWCONFIG} ${EDITRC} ${INPUTRC}
 
-${LOCAL_AFTER_VIM}: $(abspath local-after.vim)
+${VIMRC_AFTER}: $(abspath vimrc.after)
 	@rm -vf $@;ln -svfn $< $@
 
 ${ZSH_LOCAL}: $(abspath zsh-local)
