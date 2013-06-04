@@ -10,12 +10,13 @@
 
 [alias]
     ci = commit -v
+    aci = commit --amend -CHEAD
     co = checkout
     st = status
     br = branch
-    lg =   log --graph --pretty=format:'%Cred%h %Cblue%cr %Creset-%C(yellow)%d%Creset %s %Cgreen(%cn)%Creset' --abbrev-commit --date=relative
-    lga =  log --graph --pretty=format:'%Cred%h %Cblue%cr %Creset-%C(yellow)%d%Creset %s %Cgreen(%cn)%Creset' --abbrev-commit --date=relative --all
-    lgat = log --graph --pretty=format:'%h %cr -%d %s (%cn)' --abbrev-commit --date=relative --all
+    lg =   log --graph --pretty=format:'%Cred%h %Cblue%cr %Creset-%C(yellow)%d%Creset %s %Cgreen(%an)%Creset' --abbrev-commit --date=relative
+    lga =  log --graph --pretty=format:'%Cred%h %Cblue%cr %Creset-%C(yellow)%d%Creset %s %Cgreen(%an)%Creset' --abbrev-commit --date=relative --all
+    lgat = log --graph --pretty=format:'%h %cr -%d %s (%an)' --abbrev-commit --date=relative --all
     ls = ls-files
     d  = diff -C --stat -p
     dw = diff -C --stat -p --color-words
