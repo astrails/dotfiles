@@ -7,7 +7,7 @@ help:
 
 VIMRC_AFTER  = ~/.vimrc.after
 ZSH_LOCAL        = ~/.zsh/local
-SYSTEM_GITCONFIG = /etc/gitconfig
+SYSTEM_GITCONFIG = /usr/local/etc/gitconfig
 USER_GITCONFIG   = ~/.gitconfig
 GEMRC            = ~/.gemrc
 RDEBUGRC         = ~/.rdebugrc
